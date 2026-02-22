@@ -4,6 +4,7 @@ import 'package:finance_ui/core/styling/app_styles.dart';
 import 'package:finance_ui/core/widgets/outline_button_widget.dart';
 import 'package:finance_ui/core/widgets/primary_button_widget.dart';
 import 'package:finance_ui/core/widgets/spacing_widgets.dart';
+import 'package:finance_ui/features/auth/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -33,7 +34,9 @@ class OnBordingScreen extends StatelessWidget {
           ),
           HeightSpace(21),
           OutlineButtonWidget(
-            onPress: () {},
+            onPress: () {
+              GoRouter.of(context).pushNamed(AppRoutes.registerScreen);
+            },
             width: 331.w,
             height: 56.h,
             buttonText: "Register",

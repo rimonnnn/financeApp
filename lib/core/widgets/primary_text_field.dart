@@ -7,18 +7,25 @@ class PrimaryTextField extends StatelessWidget {
   final String? hintText;
   final bool? isPassword;
   final Widget? suffixIcon;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
   const PrimaryTextField({
     super.key,
     this.hintText,
     this.isPassword,
     this.suffixIcon,
+    this.controller,
+    this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 331.w,
-      child: TextField(
+      child: TextFormField(
+        
+        controller: controller,
+        validator: validator,
         cursorColor: AppColors.primaryColor,
         obscureText: isPassword ?? false,
         decoration: InputDecoration(

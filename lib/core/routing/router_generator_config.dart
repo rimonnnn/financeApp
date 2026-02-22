@@ -1,5 +1,10 @@
 import 'package:finance_ui/core/routing/app_routes.dart';
+import 'package:finance_ui/features/auth/create_password_screen.dart';
+import 'package:finance_ui/features/auth/forget_password_screen.dart';
 import 'package:finance_ui/features/auth/login_screen.dart';
+import 'package:finance_ui/features/auth/otp_verification_Screen.dart';
+import 'package:finance_ui/features/auth/password_changed_screen.dart';
+import 'package:finance_ui/features/auth/register_screen.dart';
 import 'package:finance_ui/features/onbording_Screen/on_bording_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -9,17 +14,54 @@ class RouterGeneratorConfig {
     initialLocation: AppRoutes.onBordingScreen,
     routes: [
       GoRoute(
-          path: AppRoutes.onBordingScreen,
-          name: AppRoutes.onBordingScreen,
-          builder: (BuildContext context, GoRouterState state) {
-            return const OnBordingScreen();
-        }),
+        path: AppRoutes.onBordingScreen,
+        name: AppRoutes.onBordingScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const OnBordingScreen();
+        },
+      ),
       GoRoute(
-          path: AppRoutes.loginScreen,
-          name: AppRoutes.loginScreen,
-          builder: (BuildContext context, GoRouterState state) {
-            return const LoginScreen();
-        })  
-    ]
+        path: AppRoutes.loginScreen,
+        name: AppRoutes.loginScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const LoginScreen();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.registerScreen,
+        name: AppRoutes.registerScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const RegisterScreen();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.forgetPasswordScreen,
+        name: AppRoutes.forgetPasswordScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const ForgetPasswordScreen();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.createPasswordScreen,
+        name: AppRoutes.createPasswordScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const CreatePasswordScreen();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.otpVerificationScreen,
+        name: AppRoutes.otpVerificationScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const OtpVerificationScreen();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.passwordChangedScreen,
+        name: AppRoutes.passwordChangedScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const PasswordChangedScreen();
+        },
+      ),
+    ],
   );
 }
