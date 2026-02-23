@@ -6,7 +6,7 @@ import 'package:finance_ui/core/widgets/primary_button_widget.dart';
 import 'package:finance_ui/core/widgets/primary_text_field.dart';
 import 'package:finance_ui/core/widgets/spacing_widgets.dart';
 import 'package:finance_ui/features/auth/forget_password_screen.dart';
-import 'package:finance_ui/features/auth/widgets/button_back_widget.dart';
+import 'package:finance_ui/core/widgets/button_back_widget.dart';
 import 'package:finance_ui/features/auth/widgets/or_login_with_widget.dart';
 import 'package:finance_ui/features/auth/widgets/social_media_buttons.dart';
 import 'package:flutter/material.dart';
@@ -104,6 +104,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   PrimaryButtonWidget(
                     onPress: () {
                       if (formKey.currentState!.validate()) {
+                        GoRouter.of(
+                          context,
+                        ).pushNamed(AppRoutes.otpVerificationScreen);
                         // Perform login action
                       }
                     },

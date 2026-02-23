@@ -4,7 +4,7 @@ import 'package:finance_ui/core/styling/app_validator.dart';
 import 'package:finance_ui/core/widgets/primary_button_widget.dart';
 import 'package:finance_ui/core/widgets/primary_text_field.dart';
 import 'package:finance_ui/core/widgets/spacing_widgets.dart';
-import 'package:finance_ui/features/auth/widgets/button_back_widget.dart';
+import 'package:finance_ui/core/widgets/button_back_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
