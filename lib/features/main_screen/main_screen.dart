@@ -3,6 +3,7 @@ import 'package:finance_ui/core/styling/app_colors.dart';
 import 'package:finance_ui/features/card_page/my_card_screen.dart';
 import 'package:finance_ui/features/home_page/home_page_screen.dart';
 import 'package:finance_ui/features/profile_page/profile_page.dart';
+import 'package:finance_ui/features/statestics/statestics_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,11 +20,7 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> screens = [
     HomePageScreen(),
-    Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: Colors.red,
-    ),
+    StatesticsScreen(),
     Container(
       width: double.infinity,
       height: double.infinity,
