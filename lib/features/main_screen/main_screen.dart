@@ -1,5 +1,6 @@
 import 'package:finance_ui/core/styling/app_assets.dart';
 import 'package:finance_ui/core/styling/app_colors.dart';
+import 'package:finance_ui/features/add_screen.dart';
 import 'package:finance_ui/features/card_page/my_card_screen.dart';
 import 'package:finance_ui/features/home_page/home_page_screen.dart';
 import 'package:finance_ui/features/profile_page/profile_page.dart';
@@ -21,11 +22,7 @@ class _MainScreenState extends State<MainScreen> {
   List<Widget> screens = [
     HomePageScreen(),
     StatesticsScreen(),
-    Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: Colors.brown,
-    ),
+    AddScreen(),
     MyCardScreen(),
     ProfilePage(),
   ];

@@ -90,7 +90,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                   HeightSpace(32),
                   PrimaryButtonWidget(
                     onPress: () {
-                      GoRouter.of(context).pushNamed(AppRoutes.loginScreen);
+                      GoRouter.of(context).pushNamed(AppRoutes.createPasswordScreen);
                     },
                     buttonText: "Verify",
                   ),

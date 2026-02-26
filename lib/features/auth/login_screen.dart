@@ -104,9 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   PrimaryButtonWidget(
                     onPress: () {
                       if (formKey.currentState!.validate()) {
-                        GoRouter.of(
-                          context,
-                        ).pushNamed(AppRoutes.otpVerificationScreen);
+                        GoRouter.of(context).pushNamed(AppRoutes.mainScreen);
                         // Perform login action
                       }
                     },

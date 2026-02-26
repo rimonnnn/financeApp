@@ -58,6 +58,9 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   PrimaryButtonWidget(
                     onPress: () {
                       if (formKey.currentState!.validate()) {}
+                      GoRouter.of(
+                        context,
+                      ).pushNamed(AppRoutes.otpVerificationScreen);
                     },
                     buttonText: "Send Code",
                   ),
@@ -71,7 +74,9 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          GoRouter.of(context).pushNamed(AppRoutes.createPasswordScreen);
+                          GoRouter.of(
+                            context,
+                          ).pushNamed(AppRoutes.otpVerificationScreen);
                         },
                         child: Text(
                           " Login",

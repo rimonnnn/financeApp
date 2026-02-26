@@ -123,6 +123,7 @@ class _RegisterScreen extends State<RegisterScreen> {
                     onPress: () {
                       if (formKey.currentState!.validate()) {
                         // Perform login action
+                        GoRouter.of(context).pushNamed(AppRoutes.loginScreen);
                       }
                     },
                     buttonText: "Register",
