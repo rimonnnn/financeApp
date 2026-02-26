@@ -38,6 +38,8 @@ dependencies:
   go_router: ^17.1.0
   flutter_svg: ^2.2.3
   pin_code: ^1.2.0
+  carousel_slider: ^5.1.2
+  dots_indicator: ^4.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

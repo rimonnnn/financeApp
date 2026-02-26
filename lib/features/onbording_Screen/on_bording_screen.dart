@@ -29,7 +29,7 @@ class OnBordingScreen extends StatelessWidget {
             height: 56.h,
             buttonText: "Login",
             onPress: () {
-              GoRouter.of(context).pushNamed(AppRoutes.loginScreen);
+              GoRouter.of(context).pushNamed(AppRoutes.mainScreen);
             },
           ),
           HeightSpace(21),

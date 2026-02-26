@@ -5,6 +5,7 @@ import 'package:finance_ui/features/auth/login_screen.dart';
 import 'package:finance_ui/features/auth/otp_verification_Screen.dart';
 import 'package:finance_ui/features/auth/password_changed_screen.dart';
 import 'package:finance_ui/features/auth/register_screen.dart';
+import 'package:finance_ui/features/main_screen/main_screen.dart';
 import 'package:finance_ui/features/onbording_Screen/on_bording_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -60,6 +61,13 @@ class RouterGeneratorConfig {
         name: AppRoutes.passwordChangedScreen,
         builder: (BuildContext context, GoRouterState state) {
           return const PasswordChangedScreen();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.mainScreen,
+        name: AppRoutes.mainScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const MainScreen();
         },
       ),
     ],
