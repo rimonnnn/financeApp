@@ -109,7 +109,7 @@ Scalable navigation structure
 
 🚀 Getting Started
 1️⃣ Clone the repository
-git clone https://github.com/rimooon/finance-app.git
+git clone https://github.com/rimonnn/finance-app.git
 2️⃣ Install dependencies
 flutter pub get
 3️⃣ Run the app
