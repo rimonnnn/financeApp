@@ -1,17 +1,17 @@
 import 'package:finance_ui/core/routing/app_routes.dart';
-import 'package:finance_ui/core/styling/app_colors.dart';
 import 'package:finance_ui/core/styling/app_styles.dart';
 import 'package:finance_ui/core/styling/app_validator.dart';
 import 'package:finance_ui/core/widgets/primary_button_widget.dart';
 import 'package:finance_ui/core/widgets/primary_text_field.dart';
 import 'package:finance_ui/core/widgets/spacing_widgets.dart';
-import 'package:finance_ui/features/auth/forget_password_screen.dart';
+import 'package:finance_ui/features/auth/auth_provider/auth_provider.dart';
 import 'package:finance_ui/core/widgets/button_back_widget.dart';
 import 'package:finance_ui/features/auth/widgets/or_login_with_widget.dart';
 import 'package:finance_ui/features/auth/widgets/social_media_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -22,29 +22,55 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _isPasswordVisible = true;
-  final formKey = GlobalKey<FormState>();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  Future<void> _login() async {
+    FocusScope.of(context).unfocus();
+
+    if (!formKey.currentState!.validate()) {
+      return;
+    }
+
+    await context.read<AuthProvider>().logIn(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim(),
+        );
+
+    if (!context.mounted) return;
+
+    final bool isLogin = context.read<AuthProvider>().isLogin;
+
+    if (isLogin) {
+      GoRouter.of(context).pushReplacementNamed(AppRoutes.mainScreen);
+    }
+  }
 
   @override
-  // void initState() {
-  //   super.initState();
-  //   emailController = TextEditingController();
-  //   passwordController = TextEditingController();
-  // }
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(22),
+          padding: EdgeInsets.all(22.w),
           child: SingleChildScrollView(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             child: Form(
               key: formKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  ButtonBackWidget(),
+                  const ButtonBackWidget(),
+
                   HeightSpace(28),
 
                   Align(
@@ -57,16 +83,21 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
+
                   HeightSpace(32),
+
                   PrimaryTextField(
                     hintText: "Enter your email",
                     controller: emailController,
                     validator: AppValidator.email,
                   ),
+
                   HeightSpace(15),
 
                   PrimaryTextField(
                     hintText: "Enter your password",
+                    controller: passwordController,
+                    validator: AppValidator.password,
                     isPassword: _isPasswordVisible,
                     suffixIcon: IconButton(
                       onPressed: () {
@@ -80,43 +111,51 @@ class _LoginScreenState extends State<LoginScreen> {
                             : Icons.visibility,
                       ),
                     ),
-                    controller: passwordController,
-                    validator: AppValidator.password,
                   ),
+
                   HeightSpace(15),
+
                   Align(
                     alignment: Alignment.centerRight,
                     child: InkWell(
                       onTap: () {
-                        GoRouter.of(
-                          context,
-                        ).pushNamed(AppRoutes.forgetPasswordScreen);
+                        GoRouter.of(context).pushNamed(
+                          AppRoutes.forgetPasswordScreen,
+                        );
                       },
                       child: Text(
                         "Forgot Password?",
                         style: AppStyles.black16SemiBold.copyWith(
-                          color: Color(0xff6A707C),
+                          color: const Color(0xff6A707C),
                         ),
                       ),
                     ),
                   ),
+
                   HeightSpace(30),
-                  PrimaryButtonWidget(
-                    onPress: () {
-                      if (formKey.currentState!.validate()) {
-                        GoRouter.of(context).pushNamed(AppRoutes.mainScreen);
-                        // Perform login action
-                      }
+
+                  Consumer<AuthProvider>(
+                    builder: (context, authProvider, child) {
+                      return PrimaryButtonWidget(
+                        onPress: authProvider.isLoading ? null : _login,
+                        buttonText:
+                            authProvider.isLoading ? "Loading..." : "Login",
+                        width: 331.w,
+                        height: 56.h,
+                      );
                     },
-                    buttonText: "Login",
-                    width: 331.w,
-                    height: 56.h,
                   ),
+
                   HeightSpace(24),
-                  OrLoginWithWidget(),
+
+                  const OrLoginWithWidget(),
+
                   HeightSpace(24),
-                  SocialMediaButtons(),
+
+                  const SocialMediaButtons(),
+
                   HeightSpace(100),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -126,14 +165,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          GoRouter.of(
-                            context,
-                          ).pushNamed(AppRoutes.registerScreen);
+                          GoRouter.of(context).pushNamed(
+                            AppRoutes.registerScreen,
+                          );
                         },
                         child: Text(
                           " Register Now",
                           style: AppStyles.black16SemiBold.copyWith(
-                            color: Color(0xff202955),
+                            color: const Color(0xff202955),
                           ),
                         ),
                       ),

@@ -9,25 +9,28 @@ class TopProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        BackButtomBlackWidget(),
-        WidthSpace(75),
-        Text(
-          "My Profile",
-          style: AppStyles.black15Bold.copyWith(fontSize: 18.sp),
-        ),
-        WidthSpace(70),
-        Container(
-          width: 48.w,
-          height: 48.w,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: Color(0xffF2F2F5), width: 1.w),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          BackButtomBlackWidget(),
+          WidthSpace(75),
+          Text(
+            "My Profile",
+            style: AppStyles.black15Bold.copyWith(fontSize: 18.sp),
           ),
-          child: Icon(Icons.person_outline),
-        ),
-      ],
+          WidthSpace(70),
+          Container(
+            width: 48.w,
+            height: 48.w,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: Color(0xffF2F2F5), width: 1.w),
+            ),
+            child: Icon(Icons.person_outline),
+          ),
+        ],
+      ),
     );
   }
 }

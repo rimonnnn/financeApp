@@ -4,7 +4,6 @@ import 'package:finance_ui/core/styling/app_colors.dart';
 import 'package:finance_ui/core/widgets/spacing_widgets.dart';
 import 'package:finance_ui/features/home_page/widgets/custom_cade_item.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomCaroulesSlider extends StatefulWidget {
   const CustomCaroulesSlider({super.key});

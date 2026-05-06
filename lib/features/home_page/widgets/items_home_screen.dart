@@ -8,11 +8,11 @@ class ItemsHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
-      padding: EdgeInsets.symmetric(horizontal: 23.w),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 8.sp,
-        crossAxisSpacing: 16.sp,
+        crossAxisSpacing: 8.sp,
       ),
       children: [
         CustomHomeItem(

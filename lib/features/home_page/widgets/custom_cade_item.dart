@@ -1,5 +1,4 @@
 import 'package:finance_ui/core/styling/app_assets.dart';
-import 'package:finance_ui/core/styling/app_colors.dart';
 import 'package:finance_ui/core/styling/app_styles.dart';
 import 'package:finance_ui/core/widgets/spacing_widgets.dart';
 import 'package:flutter/material.dart';

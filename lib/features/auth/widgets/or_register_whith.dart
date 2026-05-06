@@ -11,7 +11,7 @@ class OrRegisterWhith extends StatelessWidget {
     return Row(
       children: [
         SizedBox(
-          width: 90.w,
+          width: 80.w,
           child: Divider(color: Color(0xffE8ECF4)),
         ),
         WidthSpace(12),

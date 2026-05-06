@@ -22,25 +22,30 @@ class CustomHomeItem extends StatelessWidget {
         border: Border.all(color: Color(0xffE3E9ED), width: 1.w),
         borderRadius: BorderRadius.circular(16.r),
       ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Container(
-              width: 48.w,
-              height: 48.h,
-              decoration: BoxDecoration(
-                color: Color(0xffECF1F6),
-                borderRadius: BorderRadius.all(Radius.circular(12.r)),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Container(
+                width: 48.w,
+                height: 48.h,
+                decoration: BoxDecoration(
+                  color: Color(0xffECF1F6),
+                  borderRadius: BorderRadius.all(Radius.circular(12.r)),
+                ),
+                child: Icon(
+                  iconData as IconData?,
+                  color: AppColors.primaryColor,
+                ),
               ),
-              child: Icon(iconData as IconData?, color: AppColors.primaryColor),
             ),
-          ),
-          HeightSpace(6),
-          Text(title, style: AppStyles.black15Bold),
-          HeightSpace(3),
-          Text(descrebtion, style: AppStyles.grey12Medium),
-        ],
+            HeightSpace(6),
+            Text(title, style: AppStyles.black15Bold),
+            HeightSpace(3),
+            Text(descrebtion, style: AppStyles.grey12Medium),
+          ],
+        ),
       ),
     );
   }

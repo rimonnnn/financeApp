@@ -9,24 +9,23 @@ class OrLoginWithWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-                children: [
-                  SizedBox(
-                    width: 100.w,
-                    child: Divider(color: Color(0xffE8ECF4)),
-                  ),
-                  WidthSpace(12),
-                  Text(
-                    "Or Login with",
-                    style: AppStyles.grey15W500.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  WidthSpace(12),
-                  SizedBox(
-                    width: 100.w,
-                    child: Divider(color: Color(0xffE8ECF4)),
-                  ),
-                ],
-              );
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          width: 80.w,
+          child: Divider(color: Color(0xffE8ECF4)),
+        ),
+        WidthSpace(12),
+        Text(
+          "Or Login with",
+          style: AppStyles.grey15W500.copyWith(fontWeight: FontWeight.w600),
+        ),
+        WidthSpace(12),
+        SizedBox(
+          width: 80.w,
+          child: Divider(color: Color(0xffE8ECF4)),
+        ),
+      ],
+    );
   }
 }
